@@ -18,29 +18,29 @@ This collection records the Arduino projects actually built/tested in the learni
 
 Arduino Uno R3, breadboard, jumper wires, LEDs, 220/330 ohm resistors, 1k/10k/100k resistors, 10k potentiometer, push buttons, 2N2222/BC547 transistors, IRFZ44N MOSFET, ceramic and electrolytic capacitors, diodes, small motors, and a 4-ohm 2-watt speaker.
 
-## 01 — Basic LED Blink
+## 01 Basic LED Blink
 
 The onboard L LED on D13 is turned on for 1500 ms and off for 500 ms. This teaches `pinMode()`, `digitalWrite()`, `delay()`, and the Arduino `setup()/loop()` structure.
 
-## 02 — Analog Read + Serial Monitor
+## 02 Analog Read + Serial Monitor
 
 A0 is sampled with `analogRead()`. On an Uno the ADC normally returns 0–1023. `Serial.begin(9600)` establishes serial communication and `Serial.println()` prints the reading. A potentiometer is an ideal input.
 
-## 03 — LED Fade / Pin 13 Experiment
+## 03 LED Fade / Pin 13 Experiment
 
 The Uno's D13 is not a hardware PWM pin. Hardware PWM is available on D3, D5, D6, D9, D10 and D11. This sketch demonstrates a software-timed approximation on the onboard LED. For a genuine PWM fade, use a PWM pin and `analogWrite()`.
 
-## 04 — Four LED Potentiometer Selector
+## 04 Four LED Potentiometer Selector
 
 D2-D5 each drive an LED through its own 220-ohm resistor. A 10k potentiometer feeds A0. The 0–1023 ADC range is divided into four regions, selecting one LED at a time. This demonstrates analog-to-digital threshold control.
 
-## 05 — Eight LED Four-Pattern Controller
+## 05 Eight LED Four-Pattern Controller
 
 Eight LEDs use D2-D9. A switch is wired between D12 and D13; D12 uses `INPUT_PULLUP` and D13 is held LOW. Four patterns are included: smooth trail, alternating blink, fill/clear, and center-out. The program demonstrates arrays, loops, functions, `switch/case`, debouncing, persistent state variables, and non-blocking `millis()` timing.
 
 The use of `millis()` is important: long `delay()` calls would prevent responsive button checking. `millis()` allows the program to repeatedly check the button while also updating the animation.
 
-## 06 — Eight-Key Arduino Mini Piano
+## 06 Eight-Key Arduino Mini Piano
 
 Eight buttons on D2-D9 map to C4 through C5. The note frequencies are 262, 294, 330, 349, 392, 440, 494 and 523 Hz. `tone()` generates a square wave on D10.
 
@@ -48,7 +48,7 @@ Buttons use `INPUT_PULLUP`, so a released button reads HIGH and a pressed button
 
 A 4-ohm speaker must not be connected directly to an Uno GPIO. Use a suitable transistor driver or, preferably for a 2 W speaker, a small audio amplifier. A 2N2222 is a switching transistor and should not be treated as a 2 W audio amplifier.
 
-## 07 — Two-Pin Button Test
+## 07 Two-Pin Button Test
 
 D12 is connected to a two-pin push button and the other button terminal goes to GND. `INPUT_PULLUP` makes the released state HIGH and pressed state LOW. D13 drives the onboard L LED as an indicator. This test was useful for confirming that ordinary two-pin tactile switches work; the earlier issue was physical alignment on the breadboard.
 
